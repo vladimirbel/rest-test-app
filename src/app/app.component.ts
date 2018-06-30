@@ -22,6 +22,15 @@ export class AppComponent {
       id: this.generateId()
     }
   ];
+  products = [
+    {
+      product_ID: 1,
+      product_DESCRIPTION: "Test",
+      product_NAME: "40 inch LCD TV",
+      price: 500
+    }
+  ]
+
   constructor(private serverService: ServerService) {}
   onAddServer(name: string) {
     this.servers.push({
@@ -40,7 +49,7 @@ export class AppComponent {
   onGet() {
     this.serverService.getServers()
       .subscribe(
-        (servers: any[]) => this.servers = servers,
+        (products: any[]) => this.products = products,
         (error) => console.log(error)
       );
   }
