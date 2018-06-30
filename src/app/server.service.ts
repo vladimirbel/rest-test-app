@@ -16,13 +16,10 @@ export class ServerService {
       {headers: headers});
   }
   getServers() {
-    return this.http.get('https://udemy-ng-http.firebaseio.com/data')
+    return this.http.get('http://localhost:8080/products')
       .map(
         (response: Response) => {
           const data = response.json();
-          for (const server of data) {
-            server.name = 'FETCHED_' + server.name;
-          }
           return data;
         }
       )
